@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CarRental.Views" xmlns:customcontrols="clr-namespace:CarRental.CustomControls"
+        xmlns:local="clr-namespace:CarRental.Views" xmlns:customcontrols="clr-namespace:CarRental.CustomControls" xmlns:viewModel="clr-namespace:CarRental.ViewModels"
         mc:Ignorable="d"
         Title="LoginWindow" Height="500" Width="900"
         WindowStyle="None"
@@ -12,6 +12,17 @@
         Background="#e6ccff">
 
 
+    <Window.DataContext>
+        <viewModel:LoginViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
+    </Window.Visibility>
     <Grid>
 
 

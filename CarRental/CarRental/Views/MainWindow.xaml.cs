@@ -41,8 +41,8 @@ namespace CarRental
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
+            MenuWindow menu = new MenuWindow();
+            menu.Show();
             this.Close();
         }
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)

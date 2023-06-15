@@ -14,17 +14,17 @@ namespace CarRental
     /// </summary>
     public partial class App : Application
     {
-        protected void ApplicationStart(object sender, EventArgs e)
+        protected void ApplicationStart(object sender, StartupEventArgs e)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
-            mainWindow.IsVisibleChanged += (s, ev) =>
+            var loginWindow = new LoginWindow();
+            loginWindow.Show();
+            loginWindow.IsVisibleChanged += (s, ev) =>
             {
-                if (mainWindow.IsVisible == false && mainWindow.IsLoaded)
+                if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
                 {
-                    var loginWindow = new LoginWindow();
-                    loginWindow.Show();
-                    mainWindow.Close();
+                    var main = new MainWindow();
+                    main.Show();
+                    loginWindow.Close();
                 }
             };
         }

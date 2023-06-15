@@ -68,3 +68,5 @@ C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\ne
 C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\CustomControls\BindablePasswordBox.g.cs
 C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\CustomControls\BindablePasswordBox.baml
+C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\MenuWindow.g.cs
+C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\MenuWindow.baml
