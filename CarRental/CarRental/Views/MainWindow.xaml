@@ -23,7 +23,8 @@
         </Grid.ColumnDefinitions>
 
         <Grid Background="Purple"
-              Grid.ColumnSpan="2">
+              Grid.ColumnSpan="2"
+              MouseDown="Grid_MouseDown">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -49,13 +50,14 @@
                        FontFamily="Fonts/#Dosis"
                        FontWeight="Medium"/>
 
-            <Button Content="Wyloguj"
+            <Button Content="Start"
                         Foreground="White"
                         FontSize="10"
                         FontWeight="Medium"
                         Margin="0,0,10,0"
                     Grid.Column="12"
-                    Grid.ColumnSpan="2" Cursor="Hand">
+                    Grid.ColumnSpan="2" Cursor="Hand"
+                    Click="ToStart_Button_Click">
 
                 <Button.Style>
                     <Style TargetType="Button">
@@ -90,7 +92,8 @@
                         FontWeight="Medium"
                         Margin="0,0,50,0"
                     Grid.Column="4"
-                    Grid.ColumnSpan="2">
+                    Grid.ColumnSpan="2"
+                    Click="Exit_Button_Click">
 
                 <Button.Style>
                     <Style TargetType="Button">
@@ -172,11 +175,12 @@
 
             <StackPanel Orientation="Horizontal"
                         Margin="100,15,0,0">
-                <Button Content="Start"
+                <Button Content="Zaloguj"
                         Foreground="White"
                         FontSize="14"
                         FontWeight="Medium"
-                        HorizontalContentAlignment="Center">
+                        HorizontalContentAlignment="Center"
+                        Click="Login_Button_Click">
 
                     <Button.Style>
                         <Style TargetType="{x:Type Button}">
