@@ -48,8 +48,12 @@ namespace CarRental
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            if (this != mainWindow)
+            {
+                mainWindow.Show();
+                this.Close();
+            }
+
         }
 
 

@@ -23,5 +23,27 @@ namespace CarRental.Views
         {
             InitializeComponent();
         }
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void Exit_Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void ToStart_Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            
+
+        }
     }
+
 }

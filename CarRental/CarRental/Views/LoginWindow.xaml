@@ -8,8 +8,292 @@
         Title="LoginWindow" Height="500" Width="900"
         WindowStyle="None"
         ResizeMode="NoResize"
+        AllowsTransparency="True"
         Background="#e6ccff">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25">
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="Purple"
+              Grid.ColumnSpan="2"
+              MouseDown="Grid_MouseDown">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="BananaCo"
+                       Foreground="White"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium"/>
+
+            <TextBlock Text="Menu"
+                       Foreground="White"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium"/>
+
+            <Button Content="Start"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Margin="0,0,10,0"
+                    Grid.Column="12"
+                    Grid.ColumnSpan="2" Cursor="Hand"
+                    Click="ToStart_Button_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                        <Setter Property="Background" Value="Pink"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="Wyłącz"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Margin="0,0,50,0"
+                    Grid.Column="4"
+                    Grid.ColumnSpan="2"
+                    Click="Exit_Button_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                        <Setter Property="Background" Value="Pink"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+        </Grid>
+
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Center"
+                    Margin="45">
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,0,0,20">
+                    <Image Width="50" Height="50"
+                       Source="/Images/logo.png"
+                           RenderOptions.BitmapScalingMode="Fant"/>
+                    <TextBlock Text="BananaCo"
+                           Foreground="White"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="Medium"
+                           FontFamily="Font/#Dosis"
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <TextBlock Text="Podaj dane logowania"
+                       Foreground="White"
+                       FontSize="20"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                       TextAlignment="Center"/>
+
+                <TextBlock Text="Login"
+                       Foreground="White"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                           TextAlignment="Left"/>
+
+                <TextBox x:Name="txtUser"
+                         Text="{Binding Username}"
+                         FontSize="10"
+                         FontWeight="Medium"
+                         FontFamily="Fonts/#Dosis"
+                         Foreground="White"
+                         CaretBrush="LightGray"
+                         BorderBrush="Pink"
+                         BorderThickness="0,0,0,2"
+                         Height="20"
+                         HorizontalContentAlignment="Center"
+                         Margin="0,5,0,0"
+                         Padding="20,0,0,0">
+                    <TextBox.Background>
+                        <ImageBrush ImageSource="/Images/user.png"
+                                    Stretch="None"
+                                    AlignmentX="Left"/>
+                    </TextBox.Background>
+                </TextBox>
+
+                <TextBlock Text="Hasło"
+                       Foreground="White"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                           TextAlignment="Left"
+                           Padding="0,10,0,0"/>
+
+                <!--<customcontrols:BindablePasswordBox Password="{Binding Password,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                                                     Height="20"
+                                                     Margin="0,5,0,0" Loaded="BindablePasswordBox_Loaded">--><!--
+                </customcontrols:BindablePasswordBox>-->
+
+                <TextBlock Text="{Binding ErrorMessage}"
+                       Foreground="#D7596D"
+                       FontSize="15"
+                       FontWeight="Medium"
+                       FontFamily="Fonts/#Dosis"
+                           TextAlignment="Left"
+                           Padding="0,10,0,0"
+                           TextWrapping="Wrap"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,15,0,0">
+                <Button x:Name="btnLogin"
+                        Command="{Binding LoginCommand}"
+                        Content="Login"
+                        Foreground="White"
+                        FontSize="14"
+                        FontWeight="Medium"
+                        >
+
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                            <Setter Property="Background" Value="Pink"/>
+                            <Setter Property="Cursor" Value="Hand"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Wheat"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Width="100" Height="25"
+                                    CornerRadius="12"
+                                    Background="{TemplateBinding Background}">
+
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+            </StackPanel>
+
+        </StackPanel>
+
+        <Grid Grid.Column="1"
+              Grid.RowSpan="2"
+              Margin="160,-365,-610,85"
+              Panel.ZIndex="-1">
+
+            <Grid.RenderTransform>
+                <RotateTransform Angle="50"/>
+            </Grid.RenderTransform>
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="-350,250,-255,-250">
+
+                <StackPanel>
+                    <Border Width="700"
+                        Height="35"
+                        Background="#3DDDC2"
+                        Margin="150,0,0,0"
+                        CornerRadius="20"/>
+
+                    <Border Width="700"
+                        Height="35"
+                        Background="#FC6586"
+                        Margin="0,15,0,0"
+                        CornerRadius="20"/>
+
+                    <Border Width="700"
+                        Height="35"
+                        Background="#383660"
+                        Margin="75,15,0,0"
+                        CornerRadius="20"/>
+                </StackPanel>
+
+                <StackPanel>
+                    <Border Width="700"
+                        Height="35"
+                        Background="#3DDDC2"
+                        Margin="150,0,0,0"
+                        CornerRadius="20"/>
+
+                    <Border Width="700"
+                        Height="35"
+                        Background="#FC6586"
+                        Margin="0,15,0,0"
+                        CornerRadius="20"/>
+
+                    <Border Width="700"
+                        Height="35"
+                        Background="#383660"
+                        Margin="75,15,0,0"
+                        CornerRadius="20"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
