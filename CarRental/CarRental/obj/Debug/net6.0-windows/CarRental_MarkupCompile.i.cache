@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\App.xaml
-2-1457342498
+3-472114131
 
-61521243452
+7933501986
 2221936694136
-Views\LoginWindow.xaml;Views\MainWindow.xaml;
+CustomControls\BindablePasswordBox.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
-True
+False
 
