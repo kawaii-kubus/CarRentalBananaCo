@@ -1,5 +1,5 @@
 # CarRentalBananaCo
-C# WPF App 
+C# WPF Aplickaja do zarządzania danymi firmy CarRental BananaCo
 # Narzędzia potrzebne do uruchomienia
 - Microsoft Visual Studio 
 - Microsoft SQL Server
