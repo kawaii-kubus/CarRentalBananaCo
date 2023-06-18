@@ -74,3 +74,5 @@ C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\ne
 C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\EmployeesWindow.baml
 C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\CarOrdersWindow.g.cs
 C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\CarOrdersWindow.baml
+C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\AddCarWindow.g.cs
+C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\Views\AddCarWindow.baml

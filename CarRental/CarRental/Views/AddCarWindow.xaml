@@ -1,0 +1,173 @@
+﻿<Window x:Class="CarRental.Views.AddCarWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarRental.Views"
+        mc:Ignorable="d"
+        Title="AddCarWindow"  Height="500" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#e6ccff">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25">
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="Purple"
+              Grid.ColumnSpan="2"
+              MouseDown="Grid_MouseDown">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="BananaCo"
+                       Foreground="White"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium"/>
+
+            <TextBlock Text="Menu"
+                       Foreground="White"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium"/>
+
+            <Button Content="Start"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Margin="0,0,10,0"
+                    Grid.Column="12"
+                    Grid.ColumnSpan="2" Cursor="Hand"
+                    Click="ToStart_Button_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                        <Setter Property="Background" Value="Pink"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="Wyłącz"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Margin="0,0,50,0"
+                    Grid.Column="4"
+                    Grid.ColumnSpan="2"
+                    Click="Exit_Button_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                        <Setter Property="Background" Value="Pink"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel Margin="0 0 200 0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <TextBox
+                x:Name ="SamochodIdTxt" 
+                
+                HorizontalAlignment="Left"               
+                Margin="0,0,20,0" 
+                TextWrapping="Wrap" 
+                Text="SamochodID" 
+                VerticalAlignment="Top" 
+                BorderThickness="3 3 3 3"
+                GotFocus="SamochodIdTxt_GotFocus"
+                Width="100"  Height="35"/>
+
+                <TextBox 
+                x:Name ="StatusIdTxt"     
+                BorderThickness="3 3 3 3"
+                HorizontalAlignment="Left" 
+                Margin="0,0,20,0"
+                TextWrapping="Wrap" 
+                Text="StatusID"                
+                VerticalAlignment="Top"
+                GotFocus="StatusIdTxt_GotFocus"
+                Width="100" Height="35"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+                <Calendar
+                x:Name ="DataZamowieniaCalendar"                
+                Margin="0,0,90,0"              
+                BorderThickness="3 3 3 3"
+                Width="200" Height="138"/>
+            </StackPanel>
+            <Button
+              x:Name="AddBtn"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                Margin="0,335,0,0"
+                Content="Dodaj samochód"
+            Width="133" Height="40"
+            BorderThickness="3,3,3,3"
+            Background="Purple"
+            Foreground="White"
+            FontWeight="Bold"
+            Click="AddBtn_Click">
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

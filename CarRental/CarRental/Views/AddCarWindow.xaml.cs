@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,11 +17,11 @@ using System.Windows.Shapes;
 namespace CarRental.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy CarOrdersWindow.xaml
+    /// Logika interakcji dla klasy AddCarWindow.xaml
     /// </summary>
-    public partial class CarOrdersWindow : Window
+    public partial class AddCarWindow : Window
     {
-        public CarOrdersWindow()
+        public AddCarWindow()
         {
             InitializeComponent();
         }
@@ -44,36 +45,20 @@ namespace CarRental.Views
 
 
         }
-
-        private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
-            this.Close();
-            menu.Show();
+
+            Close();
         }
 
-
-        private void AddCarBtn_Click(object sender, RoutedEventArgs e)
+        private void SamochodIdTxt_GotFocus(object sender, RoutedEventArgs e)
         {
-            AddCarWindow addCarWindow = new AddCarWindow();
-            addCarWindow.Show();
-
+            SamochodIdTxt.Clear();
         }
 
-        private async void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
+        private void StatusIdTxt_GotFocus(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private async void RemoveCarBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-
-        }
-
-        private async void RefreshData_Click(object sender, RoutedEventArgs e)
-        {
-       
+            StatusIdTxt.Clear();
         }
     }
 }
