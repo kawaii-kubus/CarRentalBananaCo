@@ -16,7 +16,7 @@ namespace CarRental.Repositories
         private readonly string _connectionString;
         public RepositoryBase()
         {
-            _connectionString = "Server=(local); Database=MVVMLogicDb; Integrated Security=true; Encrypt=True;TrustServerCertificate=True"; 
+            _connectionString = "Server=(local); Database=BananaCarRental; Integrated Security=true; Encrypt=True;TrustServerCertificate=True"; 
         }
         protected SqlConnection GetConnection()
         {

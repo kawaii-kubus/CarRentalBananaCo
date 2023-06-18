@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\
+C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\obj\Debug\net6.0-windows\
 CarRental
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Świrek\source\repos\CarRentalBananaCo\CarRental\CarRental\App.xaml
+C:\Users\Świrek\Source\Repos\CarRentalBananaCo\CarRental\CarRental\App.xaml
 7-1082986690
 
 20-1311901661
 2221936694136
 CustomControls\BindablePasswordBox.xaml;Views\AddCarWindow.xaml;Views\CarOrdersWindow.xaml;Views\EmployeesWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\MenuWindow.xaml;
 
-True
+False
 
