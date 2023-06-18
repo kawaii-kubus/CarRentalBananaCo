@@ -24,7 +24,6 @@ namespace CarRental
     /// </summary>
     public partial class MainWindow : Window
     {
-        //private readonly ApplicationDbContext _context;
 
         private readonly ApplicationDbContext _context;
 

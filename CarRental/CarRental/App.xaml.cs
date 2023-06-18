@@ -37,36 +37,10 @@ namespace CarRental
             services.AddSingleton<MainWindow>();
 
         }
-        //protected void ApplicationStart(object sender, StartupEventArgs e)
-        //{
 
-        //    var loginWindow = new LoginWindow();
-        //    loginWindow.Show();
-        //    loginWindow.IsVisibleChanged += (s, ev) =>
-        //    {
-        //        if (loginWindow.IsVisible == false && loginWindow.IsLoaded)
-        //        {
-        //            var main = new MainWindow(context);
-        //            main.Show();
-        //            loginWindow.Close();
-        //        }
-        //    };
-        //}
         private void OnStartup(object sender, StartupEventArgs e)
         {
 
-            //LoginWindow menu = serviceProvider.GetService<LoginWindow>();
-            //menu.Show();
-
-            //menu.IsVisibleChanged += (s, ev) =>
-            //{
-            //    if (menu.IsVisible == false && menu.IsLoaded)
-            //    {
-            //        var MenuWindow = new MenuWindow(context);
-            //        MenuWindow.Show();
-            //        menu.Close();
-            //    }
-            //};
 
             LoginWindow loginWindow = new LoginWindow(context);
             loginWindow.Show();
