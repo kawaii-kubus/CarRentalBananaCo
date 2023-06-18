@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CarRental.Database;
+using CarRental.Database.Tables;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +23,11 @@ namespace CarRental.Views
     /// </summary>
     public partial class AddCarWindow : Window
     {
-        public AddCarWindow()
+        private readonly ApplicationDbContext _context;
+
+        public AddCarWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -39,7 +44,7 @@ namespace CarRental.Views
         }
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(_context);
             mainWindow.Show();
             this.Close();
 
@@ -47,8 +52,17 @@ namespace CarRental.Views
         }
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
+            _context.ZamowieniaSamochodow.Add(new ZamowieniaSamochodw
+            {
+                SamochodID = int.Parse(SamochodIdTxt.Text),
+                StatusID = int.Parse(StatusIdTxt.Text),
+                DataZamowienia = (DateTime)DataZamowieniaCalendar.SelectedDate
+            });
+            _context.SaveChanges();
+            Thread.Sleep(2000);
 
             Close();
+
         }
 
         private void SamochodIdTxt_GotFocus(object sender, RoutedEventArgs e)

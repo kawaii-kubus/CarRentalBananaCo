@@ -8,7 +8,8 @@
         Title="MainWindow" Height="500" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#e6ccff">
+        Background="#e6ccff"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25">

@@ -1,4 +1,7 @@
-﻿using CarRental.Views;
+﻿using CarRental.Database;
+using CarRental.Database.Tables;
+using CarRental.Views;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +24,15 @@ namespace CarRental
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        //private readonly ApplicationDbContext _context;
+
+        private readonly ApplicationDbContext _context;
+
+
+        public MainWindow(ApplicationDbContext context)
         {
+            _context = context;
+
             InitializeComponent();
         }
 
@@ -41,21 +51,24 @@ namespace CarRental
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
+
+            MenuWindow menu = new MenuWindow(_context);
+            this.Visibility = Visibility.Hidden;
             menu.Show();
+
+        }
+    private void ToStart_Button_Click(object sender, RoutedEventArgs e)
+    {
+        MainWindow mainWindow = new MainWindow(_context);
+        if (this != mainWindow)
+        {
+            mainWindow.Show();
             this.Close();
         }
-        private void ToStart_Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            if (this != mainWindow)
-            {
-                mainWindow.Show();
-                this.Close();
-            }
-
-        }
-
 
     }
+
+
+
+}
 }

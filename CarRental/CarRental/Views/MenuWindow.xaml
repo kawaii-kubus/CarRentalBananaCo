@@ -8,7 +8,8 @@
         Title="MenuWindow" Height="500" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#e6ccff">
+        Background="#e6ccff"
+        Loaded="CarListWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25">
@@ -131,6 +132,7 @@
                 <ColumnDefinition Width="36*"/>
                 <ColumnDefinition Width="728*"/>
             </Grid.ColumnDefinitions>
+            <Frame x:Name="MainFrame"/>
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="4">
                 <DataGrid x:Name="CarListdataGrid" 
                       

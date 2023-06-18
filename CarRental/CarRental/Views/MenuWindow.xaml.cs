@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using CarRental.Database;
+using CarRental.Database.Tables;
 
 namespace CarRental.Views
 {
@@ -20,8 +22,11 @@ namespace CarRental.Views
     /// </summary>
     public partial class MenuWindow : Window
     {
-        public MenuWindow()
+        private readonly ApplicationDbContext _context;
+
+        public MenuWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -38,35 +43,34 @@ namespace CarRental.Views
         }
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(_context);
             mainWindow.Show();
             this.Close();
 
-
         }
-
         private void PracownicyButton_Click(object s, RoutedEventArgs e)
         {
-            EmployeesWindow employees = new EmployeesWindow();
-            this.Close();
-            employees.Show();
+            EmployeesWindow employersWindow = new EmployeesWindow(_context);
+            this.Visibility = Visibility.Hidden;
+            employersWindow.Show();
         }
         private void ZamowSamochodButton_Click(object s, RoutedEventArgs e)
         {
-            CarOrdersWindow carOrders = new CarOrdersWindow();
-            this.Close();
-            carOrders.Show();
+            CarOrdersWindow carOrdersWindow = new CarOrdersWindow(_context);
+            this.Visibility = Visibility.Hidden;
+            carOrdersWindow.Show();
         }
         private void WylogujButton_Click(object s, RoutedEventArgs e)
         {
-            LoginWindow login = new LoginWindow();
-            login.Show();
-            this.Close();
+            LoginWindow loginWindow = new LoginWindow(_context);
+            this.Visibility = Visibility.Hidden;
+            loginWindow.Show();
         }
 
-        private async void CarListWindow_Loaded(object sender, RoutedEventArgs e)
+      private async void CarListWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
-        }
+            List<ListaSamochodw> cars = await _context.ListaSamochodow.ToListAsync();
+            CarListdataGrid.ItemsSource = cars;
+        }  
     }
 }

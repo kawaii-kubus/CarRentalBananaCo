@@ -1,4 +1,7 @@
 ﻿
+using CarRental.Database;
+using CarRental.Database.Tables;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +23,12 @@ namespace CarRental.Views
     /// </summary>
     public partial class LoginWindow : Window
     {
-        public LoginWindow()
+
+        private readonly ApplicationDbContext _context;
+        public LoginWindow(ApplicationDbContext context)
         {
             InitializeComponent();
+            _context = context;
         }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -39,12 +45,32 @@ namespace CarRental.Views
 
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(_context);
             mainWindow.Show();
             this.Close();
-            
-
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Close();
+            //MainWindow main = new MainWindow(_context);
+            //main.Show();
+
+            this.IsVisibleChanged += (s, ev) =>
+            {
+                if (this.IsVisible == false && this.IsLoaded)
+                {
+                    MainWindow main = new MainWindow(_context);
+                    main.Show();
+                    this.Close();
+                }
+            };
+        }
+
+ 
+
+
+
     }
 
 }

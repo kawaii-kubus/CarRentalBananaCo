@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CarRental",
+    "\\CarRental\\CarRental",
+    "\\CarRental\\CarRental\\Database",
+    "\\CarRental\\CarRental\\Database\\Tables",
+    "\\CarRental\\CarRental\\Views"
   ],
+  "SelectedNode": "\\CarRental\\CarRental\\Views\\EmployeesWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

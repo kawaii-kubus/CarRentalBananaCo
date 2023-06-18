@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CarRental.Database;
+using CarRental.Database.Tables;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +22,11 @@ namespace CarRental.Views
     /// </summary>
     public partial class EmployeesWindow : Window
     {
-        public EmployeesWindow()
+        private readonly ApplicationDbContext _context;
+
+        public EmployeesWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,23 +41,24 @@ namespace CarRental.Views
         {
             System.Windows.Application.Current.Shutdown();
         }
+
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(_context);
             mainWindow.Show();
             this.Close();
 
-
         }
 
-        private void EmployeesListdataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void EmployeesListWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            List<Pracownicy> workers = await _context.Pracownicy.ToListAsync();
+            EmployeesListdataGrid.ItemsSource = workers;
         }
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
-            this.Close();
+            MenuWindow menu = new MenuWindow(_context);
+            this.Visibility = Visibility.Hidden;
             menu.Show();
         }
     }

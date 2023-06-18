@@ -14,7 +14,6 @@ namespace CarRental.Database
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
         { }
-
         public DbSet<ListaSamochodw> ListaSamochodow { get; set; }
         public DbSet<Pracownicy> Pracownicy { get; set; }
         public DbSet<Status> Status { get; set; }

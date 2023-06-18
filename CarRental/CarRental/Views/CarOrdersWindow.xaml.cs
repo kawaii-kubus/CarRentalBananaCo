@@ -1,7 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CarRental.Database;
+using CarRental.Database.Tables;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,8 +23,11 @@ namespace CarRental.Views
     /// </summary>
     public partial class CarOrdersWindow : Window
     {
-        public CarOrdersWindow()
+        private readonly ApplicationDbContext _context;
+
+        public CarOrdersWindow(ApplicationDbContext context)
         {
+            _context = context;
             InitializeComponent();
         }
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -38,7 +44,7 @@ namespace CarRental.Views
         }
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            MainWindow mainWindow = new MainWindow(_context);
             mainWindow.Show();
             this.Close();
 
@@ -47,33 +53,45 @@ namespace CarRental.Views
 
         private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
         {
-            MenuWindow menu = new MenuWindow();
-            this.Close();
+            MenuWindow menu = new MenuWindow(_context);
+            this.Visibility = Visibility.Hidden;
             menu.Show();
         }
 
 
         private void AddCarBtn_Click(object sender, RoutedEventArgs e)
         {
-            AddCarWindow addCarWindow = new AddCarWindow();
+            AddCarWindow addCarWindow = new AddCarWindow(_context);
             addCarWindow.Show();
 
         }
 
         private async void CarOrdersWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
+            List<ZamowieniaSamochodw> cars = await _context.ZamowieniaSamochodow.ToListAsync();
+            AddCarDataGrid.ItemsSource = cars;
         }
 
         private async void RemoveCarBtn_Click(object sender, RoutedEventArgs e)
         {
+            int? selectedOrder = AddCarDataGrid.SelectedIndex;
+            if (selectedOrder != -1)
+            {
+                TextBlock ID = AddCarDataGrid.Columns[0].GetCellContent(AddCarDataGrid.Items[(int)selectedOrder]) as TextBlock;
 
+                ZamowieniaSamochodw reservationToDelete = _context.ZamowieniaSamochodow.Where(x => x.ID == int.Parse(ID.Text)).FirstOrDefault();
+                _context.Remove(reservationToDelete);
+                _context.SaveChanges();
+                List<ZamowieniaSamochodw> cars = await _context.ZamowieniaSamochodow.ToListAsync();
+                AddCarDataGrid.ItemsSource = cars;
+
+            }
 
         }
-
         private async void RefreshData_Click(object sender, RoutedEventArgs e)
         {
-       
+            List<ZamowieniaSamochodw> cars = await _context.ZamowieniaSamochodow.ToListAsync();
+            AddCarDataGrid.ItemsSource = cars;
         }
     }
 }

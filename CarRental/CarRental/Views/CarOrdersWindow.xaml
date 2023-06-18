@@ -8,7 +8,8 @@
         Title="CarOrdersWindow" Height="500" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#e6ccff">
+        Background="#e6ccff"
+        Loaded="CarOrdersWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25">
@@ -152,7 +153,7 @@
                 Orientation="Horizontal" 
                 Margin="0 20 10 0">
                 <Button 
-                Content="Dodaj auto" 
+                Content="Wypożycz auto" 
                 BorderThickness="3,3,3,3"
                 Margin="0 0 20 0"  
                 Background="Purple"

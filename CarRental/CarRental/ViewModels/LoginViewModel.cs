@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using CarRental.Repositories;
 using CarRental.Models;
+using CarRental.Database;
+using CarRental.Views;
 
 namespace CarRental.ViewModels
 {
@@ -21,6 +23,9 @@ namespace CarRental.ViewModels
         private bool _isViewVisible = true;
 
         private IUserRepository userRepository;
+
+
+
 
         //Properties
         public string Username
@@ -73,6 +78,8 @@ namespace CarRental.ViewModels
             userRepository = new UserRepository();
             LoginCommand = new ViewModelCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new ViewModelCommand(p => ExecuteRecoverPassCommand("", ""));
+
+
         }
 
 
@@ -95,11 +102,15 @@ namespace CarRental.ViewModels
                 Thread.CurrentPrincipal = new GenericPrincipal(
                     new GenericIdentity(Username), null);
                 IsViewVisible = false;
+
+                
             }
             else
             {
                 ErrorMessage = "* Invalid username or password";
             }
+
+
         }
         private void ExecuteRecoverPassCommand(string username, string email)
         {

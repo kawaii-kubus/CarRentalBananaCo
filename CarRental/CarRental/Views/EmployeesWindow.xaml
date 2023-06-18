@@ -8,7 +8,8 @@
         Title="EmployeesWindow" Height="500" Width="800"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="#e6ccff">
+        Background="#e6ccff"
+        Loaded="EmployeesListWindow_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25">
@@ -159,7 +160,7 @@
             <DataGrid x:Name="EmployeesListdataGrid"
                 HorizontalAlignment="Stretch"
                       VerticalAlignment="Center"
-            d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" SelectionChanged="EmployeesListdataGrid_SelectionChanged"/>
+            d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0" />
         </Grid>
     </Grid>
 </Window>
