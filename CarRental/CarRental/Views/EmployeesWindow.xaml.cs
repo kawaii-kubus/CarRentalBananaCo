@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace CarRental.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy MenuWindow.xaml
+    /// Logika interakcji dla klasy EmployeesWindow.xaml
     /// </summary>
-    public partial class MenuWindow : Window
+    public partial class EmployeesWindow : Window
     {
-        public MenuWindow()
+        public EmployeesWindow()
         {
             InitializeComponent();
         }
@@ -45,26 +45,15 @@ namespace CarRental.Views
 
         }
 
-        private void PracownicyButton_Click(object s, RoutedEventArgs e)
+        private void EmployeesListdataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            EmployeesWindow employees = new EmployeesWindow();
+
+        }
+        private void previousWindowBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menu = new MenuWindow();
             this.Close();
-            employees.Show();
-        }
-        private void ZamowSamochodButton_Click(object s, RoutedEventArgs e)
-        {
-
-        }
-        private void WylogujButton_Click(object s, RoutedEventArgs e)
-        {
-            LoginWindow login = new LoginWindow();
-            login.Show();
-            this.Close();
-        }
-
-        private async void CarListWindow_Loaded(object sender, RoutedEventArgs e)
-        {
-
+            menu.Show();
         }
     }
 }
