@@ -5,8 +5,207 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarRental.Views"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="450" Width="800">
+        Title="MenuWindow" Height="500" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#e6ccff">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25">
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="Purple"
+              Grid.ColumnSpan="2"
+              MouseDown="Grid_MouseDown">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="BananaCo"
+                       Foreground="White"
+                       Grid.Column="1"
+                       VerticalAlignment="Center"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium"/>
+
+            <TextBlock Text="Menu"
+                       Foreground="White"
+                       Grid.Column="2"
+                       VerticalAlignment="Center"
+                       FontFamily="Fonts/#Dosis"
+                       FontWeight="Medium"/>
+
+            <Button Content="Start"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Margin="0,0,10,0"
+                    Grid.Column="12"
+                    Grid.ColumnSpan="2" Cursor="Hand"
+                    Click="ToStart_Button_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                        <Setter Property="Background" Value="Pink"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+            <Button Content="Wyłącz"
+                        Foreground="White"
+                        FontSize="10"
+                        FontWeight="Medium"
+                        Margin="0,0,50,0"
+                    Grid.Column="4"
+                    Grid.ColumnSpan="2"
+                    Click="Exit_Button_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="TextElement.FontFamily" Value="Font/#Dosis"/>
+                        <Setter Property="Background" Value="Pink"/>
+                        <Setter Property="Cursor" Value="Hand"/>
+
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Wheat"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="75" Height="15"
+                                    CornerRadius="8"
+                                    Background="{TemplateBinding Background}">
+
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="27*"/>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="36*"/>
+                <ColumnDefinition Width="728*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="4">
+                <DataGrid x:Name="CarListdataGrid" 
+                      
+                  Background="#A6D5DE"                
+                  Margin="0,0,0,0" 
+                  Width="800" 
+                  d:ItemsSource="{d:SampleData ItemCount=7}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock         
+            Margin="35, 10"  
+            FontSize="30"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <Run
+                Text="BananaCo"/>
+            <Run
+                FontWeight="Black"
+                Foreground="Purple"           
+            Text="Car Rental"/>
+            </TextBlock>
+            <StackPanel 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal" 
+                Margin="0 20 10 0">
+                <Button 
+                Content="Pracownicy" 
+                BorderThickness="3,3,3,3"
+                Margin="0 0 20 0"  
+                Background="Purple"
+                Foreground="White"
+                VerticalAlignment="Top" 
+                Height="40" Width="120" 
+                FontWeight="Bold"
+                Click="PracownicyButton_Click ">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button 
+                Content="Zamów samochód" 
+                BorderThickness="3,3,3,3"
+                Margin="0 0 20 0"  
+                Background="Purple"
+                Foreground="White"
+                FontWeight="Bold"
+                VerticalAlignment="Top"
+                Height="40" Width="120"
+                Click="ZamowSamochodButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button 
+                Content="Wyloguj"
+                BorderThickness="3,3,3,3"
+                Background="Purple"
+                Foreground="White"
+                FontWeight="Bold"
+                Margin="0 0 20 0" 
+                VerticalAlignment="Top" Height="40" Width="120"
+                Click="WylogujButton_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

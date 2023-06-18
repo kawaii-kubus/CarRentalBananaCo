@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,8 +40,8 @@ namespace CarRental.Views
         private void ToStart_Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+            mainWindow.Show();
+            this.Close();
             
 
         }

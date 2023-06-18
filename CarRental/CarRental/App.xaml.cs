@@ -16,6 +16,7 @@ namespace CarRental
     {
         protected void ApplicationStart(object sender, StartupEventArgs e)
         {
+
             var loginWindow = new LoginWindow();
             loginWindow.Show();
             loginWindow.IsVisibleChanged += (s, ev) =>
